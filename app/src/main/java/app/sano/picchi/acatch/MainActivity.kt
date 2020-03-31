@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
     private var blackX = 0f
     private var blackY = 0f
 
+    private var score :Int = 0
+
 
 
 
@@ -70,6 +72,10 @@ class MainActivity : AppCompatActivity() {
         pink.y = (-80.0f)
         black.x = (-80.0f)
         black.y = (-80.0f)
+
+
+        scoreLabel.text = "score : 0"
+
 
 
     }
@@ -112,19 +118,38 @@ class MainActivity : AppCompatActivity() {
 
     fun changePos(){
 
+        hitCheck()
+
         //orange
         orangeX -= 12
         if(orangeX < 0){
             orangeX = screenWidth + 20
-            //orangeY = (float)Math.floor(Math.random() * (frameHeight - orange.height()))
-
+            orangeY = (Math.random() * (frameHeight - orange.height)).toFloat()
         }
 
+        orange.x = orangeX
+        orange.y = orangeY
 
 
+        //togetoge
+        blackX -= 16
+        if(blackX < 0){
+            blackX = screenWidth + 10
+            blackY = (Math.random() * (frameHeight - black.height)).toFloat()
+        }
+
+        black.x = blackX
+        black.y = blackY
 
 
-
+        //pink
+        pinkX -= 20
+        if (pinkX < 0){
+            pinkX = screenWidth + 5000
+            pinkY = (Math.random() * (frameHeight - pink.height)).toFloat()
+        }
+        pink.x = pinkX
+        pink.y = pinkY
 
         //box
         if(action_flg){
@@ -145,8 +170,52 @@ class MainActivity : AppCompatActivity() {
 
 
         box.y = boxY
+
+        scoreLabel.text = "Score : $score "
     }
 
+    fun hitCheck() {
+
+        //orange
+        var orangeCenterX = orangeX + orange.width / 2
+        var orangeCenterY = orangeY + orange.height / 2
+
+        if (0 <= orangeCenterX && orangeCenterX <= boxSize && boxY <= orangeCenterY && orangeCenterY <= boxY + boxSize) {
+            orangeX = -10.0f
+            score += 10
+
+        }
+
+        //pink
+        var pinkCenterX = pinkX + pink.width / 2
+        var pinkCenterY = pinkX + pink.width / 2
+
+        if (0 <= pinkCenterX && pinkCenterX <= boxSize && boxY <= pinkCenterY && pinkCenterY <= boxY + boxSize) {
+            pinkX = -10.0f
+            score += 30
+        }
+
+
+        //togetoge
+        var blackCenterX = blackX + black.width / 2
+        var blackCenterY = blackY + black.height / 2
+
+        if (0 <= blackCenterX && blackCenterX <= boxSize && boxY <= blackCenterY && blackCenterY <= boxY + boxSize) {
+
+            if (timer != null){
+                timer.cancel()
+                timer = null!!
+            }
+
+
+        }
+
+
+
+
+
+
+    }
 
 
 }
