@@ -4,71 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity"
+    android:background="#000000"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".StartActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="TextView" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:fontFamily="@font/pakkufont"
+        android:gravity="center_horizontal|top"
         android:text="@string/app_name"
-        android:textSize="32sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="88sp" />
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp">
+        android:layout_height="0dp"
+        android:layout_weight="0.35"
+        android:gravity="center">
 
         <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="24sp"
             android:gravity="center_vertical">
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/pink"/>
+                android:src="@drawable/pink" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/gamefont"
+                android:paddingLeft="10dp"
                 android:text="30 point"
-                android:textSize="18sp"
-                android:paddingLeft="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp">
+            android:layout_margin="24sp"
+            android:gravity="center_vertical">
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/orange"/>
+                android:src="@drawable/orange" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/gamefont"
+                android:paddingLeft="10dp"
                 android:text="10 point"
-                android:textSize="18sp"
-                android:paddingLeft="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
-            android:gravity="center_vertical"
-            android:layout_marginTop="20dp">
+            android:layout_margin="24sp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/black"/>
+                android:background="#FFFFFF"
+                android:src="@drawable/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/gamefont"
+                android:paddingLeft="10dp"
                 android:text="Game Over"
-                android:textSize="18sp"
-                android:paddingLeft="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
         </TableRow>
     </TableLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:background="#000000"
+        android:fontFamily="@font/gamefont"
+        android:gravity="bottom|center_horizontal"
+        android:onClick="startGame"
         android:text="START"
-        android:layout_marginTop="60dp"
-        android:onClick="startGame"/>
+        android:textColor="#FFFFFF"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:text="TextView" />
 
 </LinearLayout>

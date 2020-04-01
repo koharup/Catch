@@ -4,37 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity"
+    android:background="#000000"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".ResultActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GAME OVER"
-        android:textSize="30sp"/>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:fontFamily="@font/pakkufont"
+        android:gravity="bottom|center_horizontal"
+        android:text="GAME"
+        android:textColor="#FFFFFF"
+        android:textSize="88sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:fontFamily="@font/pakkufont"
+        android:gravity="center_horizontal|top"
+        android:text="OVER"
+        android:textColor="#FFFFFF"
+        android:textSize="88sp" />
 
     <TextView
         android:id="@+id/scoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:fontFamily="@font/gamefont"
+        android:gravity="center"
         android:text="150"
-        android:textSize="40sp"
-        android:layout_marginTop="80dp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/highScoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:fontFamily="@font/gamefont"
+        android:gravity="center"
         android:text="High Score : 300"
-        android:textSize="20sp"
-        android:layout_marginTop="80dp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="もう一度プレイ"
-        android:layout_marginTop="50dp"
-        android:onClick="tryAgain"/>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25"
+        android:background="#000000"
+        android:fontFamily="@font/gamefont"
+        android:gravity="center"
+        android:onClick="tryAgain"
+        android:text="Play Again"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
 </LinearLayout>
