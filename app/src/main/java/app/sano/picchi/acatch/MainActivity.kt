@@ -8,9 +8,12 @@ package app.sano.picchi.acatch
 
 //import sun.jvm.hotspot.utilities.IntArray
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Point
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +22,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    //private val soundPlayer = SoundPlayer(this)
 
     private var boxY: Float = 0f
     private var handler = Handler()
@@ -45,6 +50,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
+
     //画面に触れているかチェック
     private var action_flg: Boolean = false
     //画面の開始
@@ -54,6 +62,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         val wm = windowManager
         val display = wm.defaultDisplay
@@ -116,6 +126,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     fun changePos(){
 
         hitCheck()
@@ -176,6 +187,7 @@ class MainActivity : AppCompatActivity() {
 
     fun hitCheck() {
 
+
         //orange
         var orangeCenterX = orangeX + orange.width / 2
         var orangeCenterY = orangeY + orange.height / 2
@@ -183,6 +195,9 @@ class MainActivity : AppCompatActivity() {
         if (0 <= orangeCenterX && orangeCenterX <= boxSize && boxY <= orangeCenterY && orangeCenterY <= boxY + boxSize) {
             orangeX = -10.0f
             score += 10
+
+            //soundPlayer.playHitSound()
+            //Log.d("music",soundPlayer.toString())
 
         }
 
@@ -193,6 +208,10 @@ class MainActivity : AppCompatActivity() {
         if (0 <= pinkCenterX && pinkCenterX <= boxSize && boxY <= pinkCenterY && pinkCenterY <= boxY + boxSize) {
             pinkX = -10.0f
             score += 30
+
+            //soundPlayer.playHitSound()
+           // Log.d("music",soundPlayer.toString())
+
         }
 
 
@@ -202,9 +221,15 @@ class MainActivity : AppCompatActivity() {
 
         if (0 <= blackCenterX && blackCenterX <= boxSize && boxY <= blackCenterY && blackCenterY <= boxY + boxSize) {
 
+            //soundPlayer.playOverSound()
+
             if (timer != null){
                 timer.cancel()
-                timer = null!!
+
+
+                var intent = Intent(this,ResultActivity::class.java)
+                intent.putExtra("SCORE",score)
+                startActivity(intent)
             }
 
 
