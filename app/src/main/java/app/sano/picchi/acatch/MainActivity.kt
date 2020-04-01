@@ -1,19 +1,9 @@
 package app.sano.picchi.acatch
 
-//import sun.jvm.hotspot.utilities.IntArray
-
-//import sun.jvm.hotspot.utilities.IntArray
-
-//import sun.jvm.hotspot.utilities.IntArray
-
-//import sun.jvm.hotspot.utilities.IntArray
-
-import android.content.Context
 import android.content.Intent
 import android.graphics.Point
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +13,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    //private val soundPlayer = SoundPlayer(this)
+    private var soundPlayer: SoundPlayer? = null
 
     private var boxY: Float = 0f
     private var handler = Handler()
@@ -47,12 +37,6 @@ class MainActivity : AppCompatActivity() {
     private var score :Int = 0
 
 
-
-
-
-
-
-
     //画面に触れているかチェック
     private var action_flg: Boolean = false
     //画面の開始
@@ -62,6 +46,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        soundPlayer = SoundPlayer(this)
 
 
 
@@ -196,8 +182,7 @@ class MainActivity : AppCompatActivity() {
             orangeX = -10.0f
             score += 10
 
-            //soundPlayer.playHitSound()
-            //Log.d("music",soundPlayer.toString())
+            soundPlayer?.playHitSound()
 
         }
 
@@ -209,8 +194,7 @@ class MainActivity : AppCompatActivity() {
             pinkX = -10.0f
             score += 30
 
-            //soundPlayer.playHitSound()
-           // Log.d("music",soundPlayer.toString())
+            soundPlayer?.playHitSound()
 
         }
 
@@ -221,7 +205,7 @@ class MainActivity : AppCompatActivity() {
 
         if (0 <= blackCenterX && blackCenterX <= boxSize && boxY <= blackCenterY && blackCenterY <= boxY + boxSize) {
 
-            //soundPlayer.playOverSound()
+            soundPlayer?.playOverSound();
 
             if (timer != null){
                 timer.cancel()
@@ -234,10 +218,6 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-
-
-
-
 
 
     }
