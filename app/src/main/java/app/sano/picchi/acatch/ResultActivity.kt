@@ -40,7 +40,8 @@ class ResultActivity : AppCompatActivity() {
         }
 
     fun tryAgain(v:View){
-        startActivity(Intent(applicationContext,MainActivity::class.java))
+        intent = Intent(this,StartActivity::class.java)
+        startActivity(intent)
 
     }
 

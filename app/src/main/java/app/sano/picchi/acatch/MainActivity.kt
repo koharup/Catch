@@ -118,18 +118,25 @@ class MainActivity : AppCompatActivity() {
         hitCheck()
 
         //orange
-        orangeX -= 12
+        when(level) {
+            0 -> orangeX -= 6
+            1 -> orangeX -= 12
+            2 -> orangeX -= 18
+        }
         if(orangeX < 0){
             orangeX = screenWidth + 20
             orangeY = (Math.random() * (frameHeight - orange.height)).toFloat()
         }
-
         orange.x = orangeX
         orange.y = orangeY
 
 
         //togetoge
-        blackX -= 16
+        when(level){
+            0 -> blackX -= 8
+            1 -> blackX -= 16
+            2 -> blackX -= 24
+        }
         if(blackX < 0){
             blackX = screenWidth + 10
             blackY = (Math.random() * (frameHeight - black.height)).toFloat()
@@ -140,7 +147,11 @@ class MainActivity : AppCompatActivity() {
 
 
         //pink
-        pinkX -= 20
+        when(level){
+            0 -> pinkX -= 10
+            1 -> pinkX -= 20
+            2 -> pinkX -= 30
+        }
         if (pinkX < 0){
             pinkX = screenWidth + 5000
             pinkY = (Math.random() * (frameHeight - pink.height)).toFloat()
@@ -149,10 +160,20 @@ class MainActivity : AppCompatActivity() {
         pink.y = pinkY
 
         //box
+
+
         if(action_flg){
-            boxY -= 20
+            when(level){
+                0 -> boxY -= 10
+                1 -> boxY -= 20
+                2 -> boxY -= 30
+            }
         }else { //タッチされてない
-            boxY += 20
+            when(level){
+                0 -> boxY += 10
+                1 -> boxY += 20
+                2 -> boxY += 30
+            }
         }
         box.y = boxY
 
